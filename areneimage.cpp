@@ -107,7 +107,7 @@ void AreneImage::paintEvent(QPaintEvent *event)
        painter.drawLine(283,216,308,173);
        painter.drawLine(383,216,433,216);
        painter.drawLine(358,259,383,302);
-       painter.drawLine(358,173,383,216);
+       painter.drawLine(358,173,383,130);
 
        painter.drawLine(666+308,173,666+358,173);
        painter.drawLine(666+308,176,666+358,176);//

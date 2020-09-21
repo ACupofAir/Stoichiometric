@@ -894,53 +894,66 @@ void Widget::on_AlkaneBtn_clicked()
 
    cNumber = ui->cNumberSpinBox->value();
    hNumber = ui->hNumberSpinBox->value();
-   molarMass = 12.011*cNumber + 1.008*hNumber;
-   ui->molarMassDoubleSpinBox->setValue(molarMass);
+   if((cNumber*2+2) == hNumber && 0<cNumber && cNumber <= 8)
+   {
+        molarMass = 12.011*cNumber + 1.008*hNumber;
+        ui->molarMassDoubleSpinBox->setValue(molarMass);
 
-   double cAtomPer, hAtomPer, cMassPer, hMassPer;
-   cAtomPer = cNumber/(cNumber+hNumber);
-   hAtomPer = hNumber/(cNumber+hNumber);
-   cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
-   hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
+        double cAtomPer, hAtomPer, cMassPer, hMassPer;
+        cAtomPer = cNumber/(cNumber+hNumber);
+        hAtomPer = hNumber/(cNumber+hNumber);
+        cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
+        hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
 
-   ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
-   ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
-   ui->cMassPerDoubleSpinBox->setValue(cMassPer);
-   ui->hMassPerDoubleSpinBox->setValue(hMassPer);
+        ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
+        ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
+        ui->cMassPerDoubleSpinBox->setValue(cMassPer);
+        ui->hMassPerDoubleSpinBox->setValue(hMassPer);
 
-   //DongHao
-   t = 0;
-   Wanting(cNumber,hNumber);
-   qDebug()<<"t: "<<t<<endl;
+        //DongHao
+        t = 0;
+        Wanting(cNumber,hNumber);
+        qDebug()<<"t: "<<t<<endl;
 
+        //MessageBox
+        ui->messageBox->setText("Success!");
 
-
-   //Pop Image
-   new_image = new image;
-   new_image->show();
-
+        //Pop Image
+        new_image = new image;
+        new_image->show();
+   }
+   else {
+      ui->messageBox->setText("Input wrong, type again");
+   }
 }
 
 void Widget::on_OlefinBtn_clicked()
 {
    cNumber = ui->cNumberSpinBox->value();
    hNumber = ui->hNumberSpinBox->value();
-   molarMass = 12.011*cNumber + 1.008*hNumber;
-   ui->molarMassDoubleSpinBox->setValue(molarMass);
+   if(cNumber*2 == hNumber && cNumber >= 2 && cNumber <= 6)
+   {
+      ui->messageBox->setText("Success!");
+      molarMass = 12.011*cNumber + 1.008*hNumber;
+      ui->molarMassDoubleSpinBox->setValue(molarMass);
 
-   double cAtomPer, hAtomPer, cMassPer, hMassPer;
-   cAtomPer = cNumber/(cNumber+hNumber);
-   hAtomPer = hNumber/(cNumber+hNumber);
-   cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
-   hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
+      double cAtomPer, hAtomPer, cMassPer, hMassPer;
+      cAtomPer = cNumber/(cNumber+hNumber);
+      hAtomPer = hNumber/(cNumber+hNumber);
+      cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
+      hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
 
-   ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
-   ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
-   ui->cMassPerDoubleSpinBox->setValue(cMassPer);
-   ui->hMassPerDoubleSpinBox->setValue(hMassPer);
-   //Pop Image
-   new_olefin_image = new Olefin_image;
-   new_olefin_image->show();
+      ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
+      ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
+      ui->cMassPerDoubleSpinBox->setValue(cMassPer);
+      ui->hMassPerDoubleSpinBox->setValue(hMassPer);
+      //Pop Image
+      new_olefin_image = new Olefin_image;
+      new_olefin_image->show();
+   }
+   else {
+      ui->messageBox->setText("Input wrong, type again");
+   }
 }
 
 void Widget::on_CyclaneBtn_clicked()
@@ -956,12 +969,21 @@ void Widget::on_CyclaneBtn_clicked()
    cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
    hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
 
-   ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
-   ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
-   ui->cMassPerDoubleSpinBox->setValue(cMassPer);
-   ui->hMassPerDoubleSpinBox->setValue(hMassPer);
-   new_cyclane_image = new CyclaneImage;
-   new_cyclane_image->show();
+
+   if(hNumber == 2*cNumber && cNumber <= 6 && cNumber >= 3)
+   {
+       ui->messageBox->setText("Success!");
+       ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
+       ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
+       ui->cMassPerDoubleSpinBox->setValue(cMassPer);
+       ui->hMassPerDoubleSpinBox->setValue(hMassPer);
+       new_cyclane_image = new CyclaneImage;
+       new_cyclane_image->show();
+   }
+   //MessageBox
+   else {
+      ui->messageBox->setText("Input wrong, type again");
+   }
 }
 
 void Widget::on_AreneBtn_clicked()
@@ -981,6 +1003,15 @@ void Widget::on_AreneBtn_clicked()
    ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
    ui->cMassPerDoubleSpinBox->setValue(cMassPer);
    ui->hMassPerDoubleSpinBox->setValue(hMassPer);
-   new_arene_image = new AreneImage;
-   new_arene_image->show();
+
+   if((cNumber*2 - 6) == hNumber && cNumber >= 6 && cNumber <= 9)
+   {
+       ui->messageBox->setText("Success!");
+       new_arene_image = new AreneImage;
+       new_arene_image->show();
+   }
+   //MessageBox
+   else {
+      ui->messageBox->setText("Input wrong, type again");
+   }
 }

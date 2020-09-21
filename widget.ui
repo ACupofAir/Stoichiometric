@@ -1132,6 +1132,9 @@ QPushButton:pressed
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QPushButton" name="btnClose">
          <property name="sizePolicy">
@@ -1288,6 +1291,34 @@ QPushButton:pressed
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QLabel" name="messageBox">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>637</y>
+        <width>331</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cascadia Mono</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#messageBOx {
+	border-radius: 10px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Waiting for input</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
     </widget>
    </item>
