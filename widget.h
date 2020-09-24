@@ -6,6 +6,7 @@
 #include "olefin_image.h"
 #include "cyclaneimage.h"
 #include "areneimage.h"
+#include "alkyen.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -33,6 +34,7 @@ public:
     image *new_image;
     CyclaneImage *new_cyclane_image;
     AreneImage *new_arene_image;
+    alkyen *new_alkyen_image;
 
     double molarMass;
 //    int t = 0;
@@ -54,6 +56,8 @@ private slots:
     void on_CyclaneBtn_clicked();
 
     void on_AreneBtn_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Widget *ui;

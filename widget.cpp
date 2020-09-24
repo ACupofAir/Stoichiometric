@@ -1015,3 +1015,34 @@ void Widget::on_AreneBtn_clicked()
       ui->messageBox->setText("Input wrong, type again");
    }
 }
+
+void Widget::on_pushButton_clicked()
+{
+   cNumber = ui->cNumberSpinBox->value();
+   hNumber = ui->hNumberSpinBox->value();
+   molarMass = 12.011*cNumber + 1.008*hNumber;
+   ui->molarMassDoubleSpinBox->setValue(molarMass);
+
+   double cAtomPer, hAtomPer, cMassPer, hMassPer;
+   cAtomPer = cNumber/(cNumber+hNumber);
+   hAtomPer = hNumber/(cNumber+hNumber);
+   cMassPer = 12.011*cNumber/(12.011*cNumber+1.008*hNumber);
+   hMassPer = 1.008*hNumber/(12.011*cNumber+1.008*hNumber);
+
+   ui->cAtomPerDoubleSpinBox->setValue(cAtomPer);
+   ui->hAtomPerDoubleSpinBox->setValue(hAtomPer);
+   ui->cMassPerDoubleSpinBox->setValue(cMassPer);
+   ui->hMassPerDoubleSpinBox->setValue(hMassPer);
+
+   if((cNumber*2 - 2) == hNumber && cNumber >= 2 && cNumber <= 7)
+   {
+       ui->messageBox->setText("Success!");
+       new_alkyen_image = new alkyen;
+       new_alkyen_image->show();
+   }
+   //MessageBox
+   else {
+      ui->messageBox->setText("Input wrong, type again");
+   }
+}
+

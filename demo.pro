@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    alkyen.cpp \
     areneimage.cpp \
     cyclaneimage.cpp \
     image.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    alkyen.h \
     areneimage.h \
     cyclaneimage.h \
     image.h \
@@ -33,6 +35,7 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    alkyen.ui \
     areneimage.ui \
     cyclaneimage.ui \
     image.ui \
