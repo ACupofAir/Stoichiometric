@@ -8,6 +8,13 @@ AreneImage::AreneImage(QWidget *parent) :
     ui(new Ui::AreneImage)
 {
     ui->setupUi(this);
+    QString title;
+    title +="C";
+    title +=char(cNumber+48);
+    title +="H";
+    title +=(hNumber<10?char(hNumber+48):char(49));
+    if(hNumber>9)title +=char(hNumber-10+48);
+    QWidget::setWindowTitle(title);
 }
 
 AreneImage::~AreneImage()
