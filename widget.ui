@@ -480,7 +480,7 @@ QSpinBox::up-button,QSpinBox::down-button
                     </widget>
                    </item>
                    <item>
-                    <widget class="QDoubleSpinBox" name="molarMassDoubleSpinBox">
+                    <widget class="QLabel" name="molarMassDoubleSpinBox">
                      <property name="minimumSize">
                       <size>
                        <width>96</width>
@@ -493,8 +493,16 @@ QSpinBox::up-button,QSpinBox::down-button
                        <height>48</height>
                       </size>
                      </property>
+                     <property name="font">
+                      <font>
+                       <family>Cascadia Mono</family>
+                       <weight>75</weight>
+                       <italic>false</italic>
+                       <bold>true</bold>
+                      </font>
+                     </property>
                      <property name="styleSheet">
-                      <string notr="true">QDoubleSpinBox 
+                      <string notr="true">QLabel 
 {
 	border-top-right-radius:5px;
 	border-bottom-right-radius:5px;
@@ -511,6 +519,9 @@ QDoubleSpinBox::up-button,QDoubleSpinBox::down-button
 
 
 </string>
+                     </property>
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>

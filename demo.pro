@@ -21,6 +21,7 @@ SOURCES += \
     alkyen.cpp \
     areneimage.cpp \
     cyclaneimage.cpp \
+    donghao_alkane.cpp \
     image.cpp \
     main.cpp \
     olefin_image.cpp \
